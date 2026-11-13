@@ -41,6 +41,16 @@ html{color-scheme:light}body[data-theme="solar"]{font-family:system-ui,-apple-sy
 /* Mais espaço para ler a conversa em celulares. */
 @media(max-width:600px){body{height:auto;min-height:100dvh;overflow-x:hidden;overflow-y:auto}.wrap{width:calc(100% - 24px)}.app-main{width:min(calc(100% - 32px),420px);margin-left:auto;margin-right:auto}.top{min-height:46px;padding:4px 2px}.hamburger{width:38px;height:38px}.brand small{display:none}.app-main{flex:0 0 auto;min-height:0}.chat{width:100%;height:50dvh;min-height:320px;max-height:480px;flex:0 0 auto;padding:12px 10px;gap:10px;border-radius:16px}.msg{max-width:96%;padding:12px 14px}.form{margin-top:6px}.controls{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;margin:5px 0;gap:5px;scrollbar-width:thin}.ctrl button{white-space:nowrap;flex:0 0 auto;padding:7px 9px;font-size:.78rem}.compose-area{padding-bottom:max(3px,env(safe-area-inset-bottom))}}
 .privacy{color:#70675e;font-size:.68rem;line-height:1.3}.privacy summary{cursor:pointer}.privacy p{margin:4px 0;max-height:65px;overflow:auto}
+
+/* Em celulares, a conversa absorve o espaço vazio e o campo de envio fica no rodapé. */
+@media(max-width:600px){
+  html,body{height:100%;min-height:100%;overflow:hidden}
+  body{height:100dvh;min-height:100dvh;overflow:hidden;display:flex;flex-direction:column}
+  .top{flex:0 0 auto}
+  .app-main{flex:1 1 auto;min-height:0;width:min(calc(100% - 32px),420px);margin:0 auto;display:flex;flex-direction:column;padding-bottom:0}
+  .chat{width:100%;height:auto;min-height:0;max-height:none;flex:1 1 auto;overflow-y:auto}
+  .compose-area{flex:0 0 auto;padding-bottom:max(4px,env(safe-area-inset-bottom))}
+}
 </style></head>
 <body><header class="wrap top"><button id="menuToggle" class="hamburger" type="button" aria-label="Abrir conversas" aria-expanded="false">☰</button><div class="brand">NEXA<span>✦</span><small>Sua assistente</small></div><span class="badge">Pronta para conversar</span></header>
 <div id="drawerShade" class="drawer-shade" hidden></div><aside id="drawer" class="drawer" aria-label="Conversas" aria-hidden="true"><div class="drawer-head"><strong>Conversas</strong><button id="closeDrawer" type="button" aria-label="Fechar menu">×</button></div><button id="newConversation" class="new-conversation" type="button">＋ Nova conversa</button><div id="conversationList" class="conversation-list"></div><p class="drawer-note">Suas conversas ficam salvas somente neste aparelho.</p></aside>
